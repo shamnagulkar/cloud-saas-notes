@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SaaS Notes Application</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 420px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 14px;
+            border: none;
+            border-radius: 5px;
+            background: #667eea;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        .note {
+            background: #f7f9fc;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+        }
+
+        .note p {
+            margin: 0 0 6px 0;
+            color: #333;
+        }
+
+        .time {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .delete {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 12px;
+            color: #e53e3e;
+            text-decoration: none;
+        }
+
+        .delete:hover {
+            text-decoration: underline;
+        }
+
+        .empty {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Cloud SaaS Notes</h2>
+
+        <form method="POST">
+            <input type="text" name="note" placeholder="Enter your note" required>
+            <button type="submit">Add</button>
+        </form>
+
+        {% for note in notes %}
+            <div class="note">
+                <p>{{ note["content"] }}</p>
+                <div class="time">Created at: {{ note["created_at"] }}</div>
+                <a class="delete" href="/delete/{{ note['id'] }}">Delete</a>
+            </div>
+        {% else %}
+            <p class="empty">No notes yet.</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

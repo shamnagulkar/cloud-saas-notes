@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.app {
+    background: #ffffff;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 0;
+    color: #2d3436;
+    font-size: 2rem;
+}
+
+.analytics {
+    background: #6c5ce7;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.input-box {
+    background: #f1f2f6;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    resize: none;
+}
+
+button {
+    background: #00b894;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover { background: #009476; }
+
+.notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.note {
+    padding: 20px;
+    border-radius: 15px;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    color: #2d3436;
+}
+
+/* Bright Sticky Note Colors */
+.note:nth-child(5n+1) { background: #ffeaa7; }
+.note:nth-child(5n+2) { background: #fab1a0; }
+.note:nth-child(5n+3) { background: #81ecec; }
+.note:nth-child(5n+4) { background: #a29bfe; }
+.note:nth-child(5n+5) { background: #55efc4; }
+
+.note a {
+    text-decoration: none;
+    align-self: flex-end;
+    font-size: 20px;
+}
