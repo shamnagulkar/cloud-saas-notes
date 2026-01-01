@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SaaS Notes Application</title>
+    <title>Memoir</title>
     <style>
         body {
             margin: 0;
@@ -24,7 +24,14 @@
         h2 {
             text-align: center;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 4px;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 18px;
         }
 
         form {
@@ -95,10 +102,11 @@
 <body>
 
     <div class="container">
-        <h2>Cloud SaaS Notes</h2>
+        <h2>Memoir</h2>
+        <div class="tagline">Your personal knowledge & memory vault</div>
 
         <form method="POST">
-            <input type="text" name="note" placeholder="Enter your note" required>
+            <input type="text" name="note" placeholder="Write something worth remembering…" required>
             <button type="submit">Add</button>
         </form>
 
@@ -109,7 +117,7 @@
                 <a class="delete" href="/delete/{{ note['id'] }}">Delete</a>
             </div>
         {% else %}
-            <p class="empty">No notes yet.</p>
+            <p class="empty">No memories yet.</p>
         {% endfor %}
     </div>
 

@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 from datetime import datetime
 
+# -------------------------------
+# Memoir - Personal Notes SaaS
+# -------------------------------
+
 app = Flask(__name__)
 DB_NAME = "notes.db"
 
@@ -13,7 +17,7 @@ def get_db_connection():
     return conn
 
 
-# ---------- Create Table (Runs Once) ----------
+# ---------- Initialize Database ----------
 def init_db():
     conn = get_db_connection()
     conn.execute("""
@@ -44,8 +48,8 @@ def home():
     notes = conn.execute(
         "SELECT * FROM notes ORDER BY id DESC"
     ).fetchall()
-    conn.close()
 
+    conn.close()
     return render_template("index.html", notes=notes)
 
 
